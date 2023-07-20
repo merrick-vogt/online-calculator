@@ -20,65 +20,91 @@ buttons.forEach(button => {
     switch (buttonId) {
         case "b0":
             digits.push(0);
+            answerElement.textContent = digits.join("");
             break;
         case "b1":
             digits.push(1);
+            answerElement.textContent = digits.join("");
             break;
         case "b2":
             digits.push(2);
+            answerElement.textContent = digits.join("");
             break;
         case "b3":
             digits.push(3);
+            answerElement.textContent = digits.join("");
             break;
         case "b4":
             digits.push(4);
+            answerElement.textContent = digits.join("");
             break;
         case "b5":
             digits.push(5);
+            answerElement.textContent = digits.join("");
             break;
         case "b6":
             digits.push(6);
+            answerElement.textContent = digits.join("");
             break;
         case "b7":
             digits.push(7);
+            answerElement.textContent = digits.join("");
             break;
         case "b8":
             digits.push(8);
+            answerElement.textContent = digits.join("");
             break;
         case "b9":
             digits.push(9);
+            answerElement.textContent = digits.join("");
             break;
         case "add":
-            const combinedNumber = parseInt(digits.join(''));
+            const combinedNumber = parseFloat(digits.map(String).join(''));
             numbers.push(combinedNumber);
             operators.push("+");
             digits = [];
             break;
         case "sub":
-            const combinedNumber2 = parseInt(digits.join(''));
+            const combinedNumber2 = parseFloat(digits.join(''));
             numbers.push(combinedNumber2);
             operators.push("-");
             digits = [];
             break;
         case "mul":
-            const combinedNumber3 = parseInt(digits.join(''));
+            const combinedNumber3 = parseFloat(digits.join(''));
             numbers.push(combinedNumber3);
             operators.push("*");
             digits = [];
             break;
         case "div":
-            const combinedNumber4 = parseInt(digits.join(''));
+            const combinedNumber4 = parseFloat(digits.join(''));
             numbers.push(combinedNumber4);
             operators.push("/");
             digits = [];
             break;
-
+        case "ce":
+            // clear entry
+            digits = [];
+            answerElement.textContent = digits.join("");
+            break;
+        case "c":
+            // clear everything
+            digits = [];
+            numbers = [];
+            operators = [];
+            answerElement.textContent = digits.join("");
+            break;
+        case "dec":
+            // adds decimal
+            digits.push(".");
+            answerElement.textContent = digits.join("");
+            break;
+            
         case "eq":
-            const combinedNumber5 = parseInt(digits.join(''));
+            const combinedNumber5 = parseFloat(digits.join(''));
             numbers.push(combinedNumber5);
             digits = [];
             console.log("perform operations");
-            console.log(numbers);
          
             // Perform operations * and / first. And then + and -.
 
@@ -101,9 +127,7 @@ buttons.forEach(button => {
                         }
 
                     }
-                    console.log(numbers);
-                    console.log(operators);
-
+                
                 });
 
                 operators.forEach(function(operation, index, operators) {
@@ -123,16 +147,16 @@ buttons.forEach(button => {
                         }
 
                     }
-                    console.log(numbers);
-                    console.log(operators);
+                    
 
                 });
-
+                console.log(numbers);
+                console.log(operators);
 
             }
             let answer = numbers[0];
             // remove answer from array for next calculation.
-            numbers.shift();
+            // numbers.shift();
             // set screen answer to answer
             answerElement.textContent = answer;
         }

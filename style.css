@@ -40,7 +40,10 @@ button {
 
 #ce {
     background-color: rgb(167, 174, 201);
-    grid-row: span 2;
+}
+
+#c {
+    background-color: rgb(100, 111, 152);
 }
 
 #eq {
